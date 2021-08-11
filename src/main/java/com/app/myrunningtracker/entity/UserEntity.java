@@ -2,6 +2,7 @@ package com.app.myrunningtracker.entity;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class UserEntity {
@@ -11,6 +12,9 @@ public class UserEntity {
     private int id;
     private String username;
     private String password;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<UserDataEntity> recordsList;
 
     public UserEntity() {
     }
