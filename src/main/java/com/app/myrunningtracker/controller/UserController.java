@@ -36,7 +36,7 @@ public class UserController {
     public ResponseEntity<?> login(@RequestBody UserEntity user) {
         try{
             userService.login(user);
-            return ResponseEntity.ok().body("Authorized");
+            return ResponseEntity.ok("Authorized");
         }
         catch(UserNotFoundException e){
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -51,7 +51,7 @@ public class UserController {
         try {
             userService.delete(id);
 
-            return ResponseEntity.ok().body("User deleted");
+            return ResponseEntity.ok("User deleted");
         }
         catch (Exception e){
             return ResponseEntity.badRequest().body("An error occurred");

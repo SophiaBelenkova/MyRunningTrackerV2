@@ -8,14 +8,16 @@ import java.sql.Time;
 public class UserDataEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id; //primary key, type: integer
-    private java.sql.Date date; //type: date
-    private Time time; //type: time
-    private float distance; //type: float
+    private int id;
+    private java.sql.Date date;
+    private Time time;
+    private float distance;
+    private int user_id;
+
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UserEntity user; //this helps us connect UserEntity to UserDataEntity
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    private UserEntity user;
 
     public UserDataEntity() {
 
@@ -51,5 +53,13 @@ public class UserDataEntity {
 
     public void setDistance(float distance) {
         this.distance = distance;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 }
