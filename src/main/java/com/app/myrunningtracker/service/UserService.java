@@ -1,9 +1,9 @@
 package com.app.myrunningtracker.service;
 
 import com.app.myrunningtracker.entity.UserEntity;
+import com.app.myrunningtracker.exceptions.UserAlreadyExistsException;
 import com.app.myrunningtracker.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,9 +16,9 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public UserEntity register(UserEntity user){
+    public UserEntity register(UserEntity user) throws UserAlreadyExistsException {
         if(userRepository.findByUsername(user.getUsername()) != null){
-            return ResponseEntity.badRequest().body("The username is taken");
+           throw new UserAlreadyExistsException("This username is already taken");
         }
         return userRepository.save(user);
     }
