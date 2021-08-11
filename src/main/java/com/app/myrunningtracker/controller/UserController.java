@@ -32,9 +32,10 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity login(){
+    public ResponseEntity login(@RequestBody UserEntity user){
         try{
-            return ResponseEntity.ok("Authorized");
+            userService.login(user);
+            return ResponseEntity.ok().body("Authorized");
         }
         catch(Exception e){
             return ResponseEntity.badRequest().body("An error occurred");

@@ -22,4 +22,8 @@ public class UserService {
         }
         return userRepository.save(user);
     }
+
+    public UserEntity login(UserEntity user) {
+        return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+    }
 }
