@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "dfbbc811-d02e-41d1-92e0-09b6ecc49066",
+		"name": "Remote MRT Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"ParkJinyoung\",\r\n    \"password\":\"22091994\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://my-running-tracker-ver2.herokuapp.com/user/register",
+							"protocol": "https",
+							"host": [
+								"my-running-tracker-ver2",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"HuangRenjun\",\r\n    \"password\":\"23032000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://my-running-tracker-ver2.herokuapp.com/user/login",
+							"protocol": "https",
+							"host": [
+								"my-running-tracker-ver2",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://my-running-tracker-ver2.herokuapp.com/user/delete",
+							"protocol": "https",
+							"host": [
+								"my-running-tracker-ver2",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Data",
+			"item": [
+				{
+					"name": "add new record",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"distance\": 300.0,\r\n    \"date\": \"2021-08-10\",\r\n    \"time\": \"00:02:11\",\r\n    \"user_id\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://my-running-tracker-ver2.herokuapp.com/records/",
+							"protocol": "https",
+							"host": [
+								"my-running-tracker-ver2",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"records",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all records",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://my-running-tracker-ver2.herokuapp.com/records/2",
+							"protocol": "https",
+							"host": [
+								"my-running-tracker-ver2",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"records",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update record",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"distance\":100.0,\r\n    \"date\": \"2021-08-10\",\r\n    \"time\": \"00:01:26\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://my-running-tracker-ver2.herokuapp.com/records/2/8",
+							"protocol": "https",
+							"host": [
+								"my-running-tracker-ver2",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"records",
+								"2",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete record",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/records/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"records",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
